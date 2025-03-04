@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:local="clr-namespace:PhotoGallery"
+             x:Class="PhotoGallery.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:GalleryViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="tabView:SfTabItem">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup>
+                        <VisualState x:Name="Normal" >
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#000000" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#6750A4" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <tabView:SfTabView TabBarPlacement="Bottom" EnableSwiping="True" IndicatorStrokeThickness="0"  TabBarHeight="55">
+            <tabView:SfTabItem Header="Photos" x:Name="photosTab" ImageTextSpacing="5">
+                <tabView:SfTabItem.ImageSource>
+                    <FontImageSource Glyph="&#xE703;"
+                                 Color="{Binding Source={x:Reference photosTab},Path=TextColor}"
+                             FontFamily="PhotoGallery"/>
+                </tabView:SfTabItem.ImageSource>
+                <listView:SfListView x:Name="listViewPhotos" ItemsSource="{Binding Photos}" ItemSize="200" ItemSpacing="10"
+                                     ItemTapped="OnPhotosItemTapped">
+
+                    <listView:SfListView.ItemsLayout>
+                        <listView:GridLayout SpanCount="3" />
+                    </listView:SfListView.ItemsLayout>
+                    <listView:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}" Aspect="AspectFill"/>
+                        </DataTemplate>
+                    </listView:SfListView.ItemTemplate>
+                </listView:SfListView>
+            </tabView:SfTabItem>
+
+            <tabView:SfTabItem Header="Albums" x:Name="albumsTab" ImageTextSpacing="5">
+                <tabView:SfTabItem.ImageSource>
+                    <FontImageSource Glyph="&#xE704;"
+                 Color="{Binding Source={x:Reference albumsTab},Path=TextColor}"
+             FontFamily="PhotoGallery"/>
+                </tabView:SfTabItem.ImageSource>
+
+                <listView:SfListView ItemsSource="{Binding Albums}" ItemSize="200" ItemSpacing="10"
+                                     ItemTapped="OnAlbumsItemTapped">
+                    <listView:SfListView.ItemsLayout>
+                            <listView:GridLayout SpanCount="3" />
+                        </listView:SfListView.ItemsLayout>
+                        <listView:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                    <Grid RowDefinitions="*,20,20">
+                                        <Image Source="{Binding CoverImage}" Aspect="AspectFill" />
+                                        <Label Text="{Binding AlbumName}" FontSize="15" Grid.Row="1"/>
+                                <Label Text="{Binding Count}" FontSize="12" Grid.Row="2" />
+                                </Grid>
+                            </DataTemplate>
+                        </listView:SfListView.ItemTemplate>
+                    </listView:SfListView>
+            </tabView:SfTabItem>
+
+            <tabView:SfTabItem Header="Favorites" x:Name="favoritesTab" ImageTextSpacing="5">
+                <tabView:SfTabItem.ImageSource>
+                    <FontImageSource Glyph="&#xE705;"
+                 Color="{Binding Source={x:Reference favoritesTab},Path=TextColor}"
+             FontFamily="PhotoGallery"/>
+                </tabView:SfTabItem.ImageSource>
+                <listView:SfListView ItemsSource="{Binding Favorites, Mode=TwoWay}" ItemSize="300" ItemSpacing="10"
+                     ItemTapped="OnPhotosItemTapped">
+                    <listView:SfListView.ItemsLayout>
+                        <listView:GridLayout SpanCount="2" />
+                    </listView:SfListView.ItemsLayout>
+                    <listView:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="20,*">
+                                <Label Text="{Binding DateTime, StringFormat='{0:ddd, dd MMM, yyyy}'}" />
+                                <Image Source="{Binding Image}" Aspect="AspectFill" Grid.Row="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </listView:SfListView.ItemTemplate>
+                </listView:SfListView>
+            </tabView:SfTabItem>
+        </tabView:SfTabView>
+    </Grid>
+
+</ContentPage>
