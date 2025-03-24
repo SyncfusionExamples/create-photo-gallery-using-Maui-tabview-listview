@@ -42,8 +42,17 @@ namespace PhotoGallery
                new ImageInfo() { ImageName = "place_8", Image= "place_8.jpg",Size= "2MB",DateTime= dateTime.AddDays(-40).AddHours(14)},
                new ImageInfo() { ImageName = "monitors", Image= "monitors.png",Size= "2MB",DateTime= dateTime.AddDays(-45).AddHours(14)},
                new ImageInfo() { ImageName = "place_9", Image= "place_9.jpg",Size= "2MB",DateTime= dateTime.AddDays(-50).AddHours(13)},
-               new ImageInfo() { ImageName = "bird10", Image= "bird10.jpg",Size= "2MB",DateTime= dateTime.AddMonths(-2).AddHours(16)},
-               new ImageInfo() { ImageName = "place_10", Image= "place_10.jpg",Size= "2MB",DateTime= dateTime.AddYears(-1).AddHours(16)},
+               new ImageInfo() { ImageName = "bird10", Image= "bird10.png",Size= "2MB",DateTime= dateTime.AddMonths(-2).AddHours(16)},
+               new ImageInfo() { ImageName = "place_10", Image= "place_10.jpg",Size= "2MB",DateTime= dateTime.AddMonths(-3).AddHours(6)},
+               new ImageInfo() { ImageName = "place_11", Image= "place_11.jpg",Size= "2MB",DateTime= dateTime.AddMonths(-4).AddHours(12)},
+               new ImageInfo() { ImageName = "bird11", Image= "bird11.png",Size= "2MB",DateTime= dateTime.AddMonths(-2).AddDays(1).AddHours(16)},
+               new ImageInfo() { ImageName = "bird12", Image= "bird12.png",Size= "2MB",DateTime= dateTime.AddMonths(-2).AddHours(13)},
+               new ImageInfo() { ImageName = "place_12", Image= "place_12.jpg",Size= "2MB",DateTime= dateTime.AddMonths(-3).AddHours(14)},
+               new ImageInfo() { ImageName = "place_13", Image= "place_13.jpg",Size= "2MB",DateTime= dateTime.AddMonths(-3).AddDays(1).AddHours(12)},
+               new ImageInfo() { ImageName = "bird13", Image= "bird13.png",Size= "2MB",DateTime= dateTime.AddMonths(-6).AddHours(16)},
+               new ImageInfo() { ImageName = "bird14", Image= "bird14.png",Size= "2MB",DateTime= dateTime.AddMonths(-6).AddDays(1).AddHours(10)},
+               new ImageInfo() { ImageName = "place_14", Image= "place_14.jpg",Size= "2MB",DateTime= dateTime.AddMonths(-7).AddHours(16)},
+               new ImageInfo() { ImageName = "place_15", Image= "place_15.jpg",Size= "2MB",DateTime= dateTime.AddYears(-1).AddHours(13)},
            };
 
             Countries = new ObservableCollection<ImageInfo>()

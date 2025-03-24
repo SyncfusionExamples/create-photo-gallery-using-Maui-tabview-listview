@@ -39,15 +39,15 @@
                                  Color="{Binding Source={x:Reference photosTab},Path=TextColor}"
                              FontFamily="PhotoGallery"/>
                 </tabView:SfTabItem.ImageSource>
-                <listView:SfListView x:Name="listViewPhotos" ItemsSource="{Binding Photos}" ItemSize="200" ItemSpacing="10"
-                                     ItemTapped="OnPhotosItemTapped">
+                <listView:SfListView x:Name="listViewPhotos" ItemsSource="{Binding Photos}" SelectionMode="None"
+                                     ItemSize="90" ItemSpacing="5" ItemTapped="OnPhotosItemTapped">
 
                     <listView:SfListView.ItemsLayout>
-                        <listView:GridLayout SpanCount="3" />
+                        <listView:GridLayout SpanCount="4" />
                     </listView:SfListView.ItemsLayout>
                     <listView:SfListView.ItemTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Image}" Aspect="AspectFill"/>
+                            <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="88" WidthRequest="88"/>
                         </DataTemplate>
                     </listView:SfListView.ItemTemplate>
                 </listView:SfListView>
@@ -60,17 +60,17 @@
              FontFamily="PhotoGallery"/>
                 </tabView:SfTabItem.ImageSource>
 
-                <listView:SfListView ItemsSource="{Binding Albums}" ItemSize="200" ItemSpacing="10"
-                                     ItemTapped="OnAlbumsItemTapped">
+                <listView:SfListView ItemsSource="{Binding Albums}" ItemSize="230"
+                                     ItemTapped="OnAlbumsItemTapped" SelectionMode="None">
                     <listView:SfListView.ItemsLayout>
-                            <listView:GridLayout SpanCount="3" />
+                            <listView:GridLayout SpanCount="2" />
                         </listView:SfListView.ItemsLayout>
                         <listView:SfListView.ItemTemplate>
                             <DataTemplate>
                                     <Grid RowDefinitions="*,20,20">
-                                        <Image Source="{Binding CoverImage}" Aspect="AspectFill" />
-                                        <Label Text="{Binding AlbumName}" FontSize="15" Grid.Row="1"/>
-                                <Label Text="{Binding Count}" FontSize="12" Grid.Row="2" />
+                                        <Image Source="{Binding CoverImage}" Aspect="Fill" HeightRequest="180" WidthRequest="180"/>
+                                        <Label Text="{Binding AlbumName}" FontSize="15" Margin="10,0,0,0" Grid.Row="1"/>
+                                <Label Text="{Binding Count, StringFormat='{0} items'}" Margin="10,0,0,0" FontSize="12" Grid.Row="2" />
                                 </Grid>
                             </DataTemplate>
                         </listView:SfListView.ItemTemplate>
@@ -83,15 +83,13 @@
                  Color="{Binding Source={x:Reference favoritesTab},Path=TextColor}"
              FontFamily="PhotoGallery"/>
                 </tabView:SfTabItem.ImageSource>
-                <listView:SfListView ItemsSource="{Binding Favorites, Mode=TwoWay}" ItemSize="300" ItemSpacing="10"
-                     ItemTapped="OnPhotosItemTapped">
-                    <listView:SfListView.ItemsLayout>
-                        <listView:GridLayout SpanCount="2" />
-                    </listView:SfListView.ItemsLayout>
+                <listView:SfListView x:Name="listViewFavorites" ItemsSource="{Binding Favorites, Mode=TwoWay}" ItemSpacing="10"
+                                     SelectionMode="None" AutoFitMode="Height" ItemTapped="OnPhotosItemTapped">
                     <listView:SfListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid RowDefinitions="20,*">
-                                <Label Text="{Binding DateTime, StringFormat='{0:ddd, dd MMM, yyyy}'}" />
+                            <Grid RowDefinitions="30,*">
+                                <Label Text="{Binding DateTime, StringFormat='{0:ddd, dd MMM, yyyy}'}" 
+                                       FontAttributes="Bold" FontSize="15" />
                                 <Image Source="{Binding Image}" Aspect="AspectFill" Grid.Row="1"/>
                             </Grid>
                         </DataTemplate>

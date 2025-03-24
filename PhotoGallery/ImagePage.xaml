@@ -14,11 +14,11 @@
 
     <Grid RowDefinitions="*,60">
         <Image Source="{Binding Image}" Aspect="AspectFit"/>
-        <HorizontalStackLayout VerticalOptions="End" Spacing="10" HorizontalOptions="Center">
+        <HorizontalStackLayout VerticalOptions="End" Spacing="20" HorizontalOptions="Center">
 
             <Border StrokeThickness="0" HeightRequest="60" WidthRequest="60">
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"/>
+                    <RoundRectangle CornerRadius="30"/>
                 </Border.StrokeShape>
                 <effects:SfEffectsView TouchDownEffects="Highlight">
                     <effects:SfEffectsView.GestureRecognizers>
@@ -33,7 +33,22 @@
 
             <Border StrokeThickness="0" HeightRequest="60" WidthRequest="60">
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"/>
+                    <RoundRectangle CornerRadius="30"/>
+                </Border.StrokeShape>
+                <effects:SfEffectsView TouchDownEffects="Highlight">
+                    <effects:SfEffectsView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEditTapped"/>
+                    </effects:SfEffectsView.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="&#xE701;" FontFamily="PhotoGallery" FontSize="24" HorizontalOptions="Center"/>
+                        <Label Text="Edit" />
+                    </VerticalStackLayout>
+                </effects:SfEffectsView>
+            </Border>
+
+            <Border StrokeThickness="0" HeightRequest="60" WidthRequest="60">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="30"/>
                 </Border.StrokeShape>
                 <effects:SfEffectsView TouchDownEffects="Highlight">
                     <effects:SfEffectsView.GestureRecognizers>
@@ -49,22 +64,7 @@
 
             <Border StrokeThickness="0" HeightRequest="60" WidthRequest="60">
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"/>
-                </Border.StrokeShape>
-                <effects:SfEffectsView TouchDownEffects="Highlight">
-                    <effects:SfEffectsView.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnEditTapped"/>
-                    </effects:SfEffectsView.GestureRecognizers>
-                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="&#xE701;" FontFamily="PhotoGallery" FontSize="24" HorizontalOptions="Center"/>
-                        <Label Text="Edit" />
-                    </VerticalStackLayout>
-                </effects:SfEffectsView>
-            </Border>
-
-            <Border StrokeThickness="0" HeightRequest="60" WidthRequest="60">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="25"/>
+                    <RoundRectangle CornerRadius="30"/>
                 </Border.StrokeShape>
                 <effects:SfEffectsView TouchDownEffects="Highlight">
                     <effects:SfEffectsView.GestureRecognizers>
@@ -72,7 +72,7 @@
                     </effects:SfEffectsView.GestureRecognizers>
                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="&#xE700;" FontFamily="PhotoGallery" FontSize="24" HorizontalOptions="Center"/>
-                        <Label Text="Delete" />
+                        <Label Text="Bin" />
                     </VerticalStackLayout>
                 </effects:SfEffectsView>
             </Border>

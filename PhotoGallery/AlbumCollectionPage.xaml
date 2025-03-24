@@ -5,14 +5,14 @@
              x:Class="PhotoGallery.AlbumCollectionPage"
              Title="{Binding AlbumName}">
     <Grid>
-        <listView:SfListView x:Name="listView" ItemsSource="{Binding Photos}" ItemSize="200" ItemSpacing="10"
-                             ItemTapped="OnPhotosItemTapped">
+        <listView:SfListView x:Name="listView" ItemsSource="{Binding Photos}" SelectionMode="None"
+                             ItemSize="90" ItemSpacing="5" ItemTapped="OnPhotosItemTapped">
             <listView:SfListView.ItemsLayout>
-                <listView:GridLayout SpanCount="3" />
+                <listView:GridLayout SpanCount="4" />
             </listView:SfListView.ItemsLayout>
             <listView:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding Image}" Aspect="AspectFill"/>
+                    <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="88" WidthRequest="88"/>
                 </DataTemplate>
             </listView:SfListView.ItemTemplate>
         </listView:SfListView>
