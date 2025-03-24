@@ -24,13 +24,17 @@ public partial class AlbumCollectionPage : ContentPage
                     {
                         return "Today";
                     }
+                    else if (item.DateTime.Date == DateTime.Now.Date.AddDays(-1))
+                    {
+                        return "Yesterday";
+                    }
                     else if (item.DateTime.Year == DateTime.Now.Year)
                     {
-                        return item.DateTime.ToString("MMM dd", CultureInfo.InvariantCulture);
+                        return item.DateTime.ToString("ddd, dd MMM", CultureInfo.InvariantCulture);
                     }
                     else
                     {
-                        return item.DateTime.ToString("MMM dd yyyy", CultureInfo.InvariantCulture);
+                        return item.DateTime.ToString("ddd, dd MMM, yyyy", CultureInfo.InvariantCulture);
                     }
                 }
                 else
